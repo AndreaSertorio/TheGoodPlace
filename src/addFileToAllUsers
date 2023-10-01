@@ -1,0 +1,23 @@
+const { db } = require('./firebase');
+const { collection, getDocs, doc, updateDoc } = require('firebase/firestore');
+
+
+
+
+async function addFieldToAllUsers() {
+    try {
+        const usersCol = collection(db, 'Users');
+        const userSnapshot = await getDocs(usersCol); // Ottieni tutti i documenti dalla collezione Users.
+        
+        userSnapshot.forEach(async (userDoc) => {
+            const userRef = doc(db, 'Users', userDoc.id); // Ottieni un riferimento al documento utente.
+            await updateDoc(userRef, { fotoProfilo: '/TGP.png' }); // Aggiorna il documento utente con il nuovo campo.
+        });
+        
+        console.log('Campo fotoProfilo aggiunto a tutti i documenti utente!');
+    } catch (error) {
+        console.error('Errore nell’aggiunta del campo fotoProfilo:', error);
+    }
+}
+
+addFieldToAllUsers();

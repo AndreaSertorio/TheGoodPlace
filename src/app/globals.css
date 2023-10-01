@@ -3,25 +3,52 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 1, 103, 149;
+    /* Peacock Blue */
+    --background-start-rgb: 178, 190, 181;
+    /* Ash Grey */
+    --background-end-rgb: 1, 103, 149;
+    /* Peacock Blue */
+    --lightning-yellow: #FCC01E;
+    --peacock-blue: #016795;
+    --hippie-green: #53824B;
+    --ash-grey: #B2BEB5;
+    --silver-chalice: #ACACAC;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--silver-chalice);
+  background: linear-gradient(to bottom,
+      var(--ash-grey),
+      var(--background-end-rgb)) var(--background-start-rgb);
 }
+
+/* Aggiungi i tuoi stili personalizzati qui */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--hippie-green);
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--peacock-blue);
+}
+.post {
+  flex: 1;
+  margin-right: 1rem;
+  padding: 1rem;
+  background-color: var(--lightning-yellow);
+  border: 1px solid var(--silver-chalice);
+}
+
+.sidebar {
+  width: 200px;
+  padding: 1rem;
+  background-color: var(--hippie-green);
+  color: var(--peacock-blue);
+}
+
